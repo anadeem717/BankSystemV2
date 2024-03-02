@@ -5524,19 +5524,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\arees\\.nuget\\packages\\": {}
+    "/home/anade/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\arees\\OneDrive\\Documents\\Programming\\BankAccountTests\\BankAccountTests.csproj",
+      "projectUniqueName": "/mnt/c/Users/arees/OneDrive/Documents/BankCSharp/BankAccountTests/BankAccountTests.csproj",
       "projectName": "BankAccountTests",
-      "projectPath": "C:\\Users\\arees\\OneDrive\\Documents\\Programming\\BankAccountTests\\BankAccountTests.csproj",
-      "packagesPath": "C:\\Users\\arees\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\arees\\OneDrive\\Documents\\Programming\\BankAccountTests\\obj\\",
+      "projectPath": "/mnt/c/Users/arees/OneDrive/Documents/BankCSharp/BankAccountTests/BankAccountTests.csproj",
+      "packagesPath": "/home/anade/.nuget/packages/",
+      "outputPath": "/mnt/c/Users/arees/OneDrive/Documents/BankCSharp/BankAccountTests/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\arees\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/home/anade/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -5548,8 +5548,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\arees\\OneDrive\\Documents\\Programming\\BankAccount\\BankAccount.csproj": {
-              "projectPath": "C:\\Users\\arees\\OneDrive\\Documents\\Programming\\BankAccount\\BankAccount.csproj"
+            "/mnt/c/Users/arees/OneDrive/Documents/BankCSharp/BankAccount/BankAccount.csproj": {
+              "projectPath": "/mnt/c/Users/arees/OneDrive/Documents/BankCSharp/BankAccount/BankAccount.csproj"
             }
           }
         }
@@ -5602,7 +5602,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/snap/dotnet-sdk/236/sdk/8.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
