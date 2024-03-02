@@ -1,5 +1,5 @@
-﻿/// Areesh Nadeem
-/// Program: Bank Account System
+﻿// Areesh Nadeem
+// Program: Bank Account System
 
 using System;
 using System.Collections.Generic;
