@@ -1,6 +1,6 @@
 
 namespace BankAccountTests;
-public class UnitTest1
+public class BankAccountTests
 {
     [Theory]
     [InlineData("HelloWorld123!")]
@@ -8,7 +8,7 @@ public class UnitTest1
     [InlineData("aaaAaaaaa123455678?")]
     public void PasswordStrengthCheck(string password)
     {
-        Assert.True(Program.CreatePassword(ref password));
+        Assert.True(Program.CheckPassword(password));
     }
 
     [Theory]
@@ -17,7 +17,7 @@ public class UnitTest1
     [InlineData("a!Hshj")]
     public void PasswordStrengthCheck2(string password)
     {
-        Assert.False(Program.CreatePassword(ref password));
+        Assert.False(Program.CheckPassword(password));
     }
 
 
@@ -26,8 +26,8 @@ public class UnitTest1
     {
         BankAccount account = new BankAccount("John", "Doe", "jdoe", "HelloWorld123!", 100);
 
-        Assert.Equal("John", account.fName);
-        Assert.Equal("Doe", account.lName);
+        Assert.Equal("John", account.firstName);
+        Assert.Equal("Doe", account.lastName);
         Assert.Equal("jdoe", account.username);
         Assert.Equal("HelloWorld123!", account.password);
         Assert.Equal(100, account.balance);

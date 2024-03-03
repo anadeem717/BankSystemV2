@@ -1,8 +1,8 @@
 
 public class BankAccount {
 
-    public string fName { get; private set; }
-    public string lName { get; private set; }
+    public string firstName { get; private set; }
+    public string lastName { get; private set; }
     public string username { get; private set; }
     public string password { get; private set; }
     public double balance { get; private set; }
@@ -12,8 +12,8 @@ public class BankAccount {
 
     // default constructor
     public BankAccount() {
-        fName = "NoName";
-        lName = "NoName";
+        firstName = "NoName";
+        lastName = "NoName";
         username = "No username";
         password = "No password";
         balance = 0; 
@@ -21,9 +21,9 @@ public class BankAccount {
     }
 
     // parameterized constructor
-    public BankAccount(string fName, string lName, string username, string password, double balance) {
-        this.fName = fName;
-        this.lName = lName;
+    public BankAccount(string firstName, string lastName, string username, string password, double balance) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.username = username;
         this.password = password;
         this.balance = balance;  
@@ -41,7 +41,7 @@ public class BankAccount {
 
     // displays account info for the user's account
    public void ViewAccountInfo() {
-    Console.WriteLine($"\nACCOUNT INFO FOR {this.fName} {this.lName}:");
+    Console.WriteLine($"\nACCOUNT INFO FOR {this.firstName} {this.lastName}:");
     Console.WriteLine($"----------------------------");
     Console.WriteLine($"Account Number: {this.accountNum}");
     Console.WriteLine($"Username: {this.username}");
