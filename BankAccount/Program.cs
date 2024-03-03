@@ -12,7 +12,7 @@ public class Program
         List<BankAccount> Accounts = new List<BankAccount>();
 
         // Main menu loop
-        while (choice != 3)
+        do
         {
             Console.WriteLine("********* Welcome to ARNAD Bank *********");
             Console.WriteLine("1. Register an Account");
@@ -21,19 +21,19 @@ public class Program
             Console.WriteLine("Enter your choice: ");
 
             // Input validation loop
-            do
-            {
-                choice = Convert.ToUInt32(Console.ReadLine());
-                if (choice < 1 || choice > 3) { Console.WriteLine("Invalid number. Please try again."); }
-                else { break; }
-                
-            } while (true);
+           
+            choice = Convert.ToUInt32(Console.ReadLine());
+            if (choice < 1 || choice > 3) { 
+                Console.WriteLine("Invalid number. Please try again.");
+                continue; 
+            }
 
             // Branch based on user's choice
             if (choice == 1) { RegisterAccount(Accounts); }
             else if (choice == 2) { Login(Accounts); }
             else { return; }
-        }
+
+        } while (choice != 3);
     }
 
 
@@ -41,14 +41,14 @@ public class Program
     // @param: "accounts" List of bank accounts to store the new account.
     static void RegisterAccount(List<BankAccount> accounts)
     {
-        string fName, lName, username, password;
+        string firstName, lastName, username, password;
         double balance = -1;
 
         // Gather user information
         Console.WriteLine("Enter your first name: ");
-        fName = Console.ReadLine();
+        firstName = Console.ReadLine();
         Console.WriteLine("Enter your last name: ");
-        lName = Console.ReadLine();
+        lastName = Console.ReadLine();
         Console.WriteLine("Enter a username for your account: ");
         username = Console.ReadLine();
         Console.WriteLine("Create a strong password with:\n\t - At least 10 characters (min 2 being numbers) \n\t - At least 1 special character\n\t - At least 1 uppercase letter");
@@ -68,9 +68,9 @@ public class Program
 
         // Register the account
         Console.WriteLine("\n*****Registering an account...*****");
-        BankAccount account = new BankAccount(fName, lName, username, password, balance);
+        BankAccount account = new BankAccount(firstName, lastName, username, password, balance);
         accounts.Add(account);
-        Console.WriteLine($"Account created for {fName} {lName}\n");
+        Console.WriteLine($"Account created for {firstName} {lastName}\n");
     }
 
 
