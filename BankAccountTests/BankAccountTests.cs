@@ -3,54 +3,56 @@ namespace BankAccountTests;
 public class BankAccountTests
 {
     [Theory]
-    [InlineData("HelloWorld123!")]
-    [InlineData("helloworldH$09")]
-    [InlineData("aaaAaaaaa123455678?")]
-    public void PasswordStrengthCheck(string password)
+    [InlineData("HelloWorld123!", true)]
+    [InlineData("helloworldH$09", true)]
+    [InlineData("aaaAaaaaa123455678?", true)]
+    [InlineData("helloworld123!", false)]
+    [InlineData("helloworldH09", false)]
+    [InlineData("a!Hshj", false)]
+    [InlineData("", false)]
+    public void Check_Password_Returns_Correct_Strength(string password, bool expectedValue)
     {
-        Assert.True(Program.CheckPassword(password));
-    }
-
-    [Theory]
-    [InlineData("helloworld123!")]
-    [InlineData("helloworldH09")]
-    [InlineData("a!Hshj")]
-    public void PasswordStrengthCheck2(string password)
-    {
-        Assert.False(Program.CheckPassword(password));
+        Assert.Equal(Program.CheckPassword(password), expectedValue);
     }
 
 
     [Fact]
-    public void AccountCheck()
+    public void Account_BuildingAccount_CorrectInfoInAccount()
     {
         BankAccount account = new BankAccount("John", "Doe", "jdoe", "HelloWorld123!", 100);
 
-        Assert.Equal("John", account.firstName);
-        Assert.Equal("Doe", account.lastName);
-        Assert.Equal("jdoe", account.username);
-        Assert.Equal("HelloWorld123!", account.password);
-        Assert.Equal(100, account.balance);
+        Assert.Equal("John", account.FirstName);
+        Assert.Equal("Doe", account.LastName);
+        Assert.Equal("jdoe", account.Username);
+        Assert.Equal("HelloWorld123!", account.Password);
+        Assert.Equal(100, account.Balance);
 
     }
 
-
     [Fact]
-    public void BalanceCheck()
+    public void Deposit_IncreasesBalance()
     {
         BankAccount account = new BankAccount("John", "Doe", "jdoe", "HelloWorld123!", 100);
 
         account.Deposit(100.10);
-        Assert.Equal(200.10, account.balance);
+        Assert.Equal(200.10, account.Balance);
+    }
+
+    [Fact]
+    public void Withdraw_DecreasesBalance()
+    {
+        BankAccount account = new BankAccount("John", "Doe", "jdoe", "HelloWorld123!", 100);
 
         account.Withdraw(50.50);
-        Assert.Equal(149.6, account.balance);
+        Assert.Equal(49.50, account.Balance);
+    }
 
-        account.Deposit(100);
-        Assert.Equal(249.6, account.balance);
+    [Fact]
+    public void Withdraw_InsufficientBalance_DoesNotChangeBalance()
+    {
+        BankAccount account = new BankAccount("John", "Doe", "jdoe", "HelloWorld123!", 100);
 
-        account.Withdraw(100);
-        Assert.Equal(149.6, account.balance);
-
+        account.Withdraw(110);
+        Assert.Equal(100, account.Balance);
     }
 }

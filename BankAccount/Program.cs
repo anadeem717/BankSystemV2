@@ -9,7 +9,7 @@ public class Program
     static void Main(string[] args)
     {
         uint choice = 0;
-        List<BankAccount> Accounts = new List<BankAccount>();
+        var accounts = new List<BankAccount>();
 
         // Main menu loop
         do
@@ -29,8 +29,8 @@ public class Program
             }
             
             // Branch based on user's choice
-            if (choice == 1) { RegisterAccount(Accounts); }
-            else if (choice == 2) { Login(Accounts); }
+            if (choice == 1) { RegisterAccount(accounts); }
+            else if (choice == 2) { Login(accounts); }
             else { return; }
 
         } while (choice != 3);
@@ -84,10 +84,10 @@ public class Program
         string password = Console.ReadLine();
 
         // Search for the account with the provided username
-        BankAccount account = accounts.Find(acc => acc.username == username);
+        BankAccount account = accounts.Find(acc => acc.Username == username);
 
         // Check if the account exists and the password matches
-        if (account != null && account.password == password)
+        if (account != null && account.Password == password)
         {
             Console.WriteLine("\n*****Login successful!*****\n");
             LoginMenu(account);
@@ -151,7 +151,7 @@ public class Program
                 try
                 {
                     account.Deposit(depositAmount);
-                    Console.WriteLine($"\n*****Deposit successful. New balance: ${account.balance}*****\n");
+                    Console.WriteLine($"\n*****Deposit successful. New balance: ${account.Balance}*****\n");
                 }
                 catch (OverflowException)
                 {
@@ -166,7 +166,7 @@ public class Program
                 try
                 {
                     account.Withdraw(withdrawAmount);
-                    Console.WriteLine($"\n*****New balance: ${account.balance}*****\n");
+                    Console.WriteLine($"\n*****New balance: ${account.Balance}*****\n");
                 }
                 catch (OverflowException)
                 {

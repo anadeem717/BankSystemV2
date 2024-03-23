@@ -1,51 +1,55 @@
+using System.Text;
 
 public class BankAccount {
 
-    public string firstName { get; private set; }
-    public string lastName { get; private set; }
-    public string username { get; private set; }
-    public string password { get; private set; }
-    public double balance { get; private set; }
-    public long accountNum { get; private set; }
+    public string FirstName { get; private set; }
+    public string LastName { get; private set; }
+    public string Username { get; private set; }
+    public string Password { get; private set; }
+    public double Balance { get; private set; }
+    public long AccountNum { get; private set; }
 
     public static long TotalAccountNums { get; private set; } = 18946759;  
 
     // default constructor
     public BankAccount() {
-        firstName = "NoName";
-        lastName = "NoName";
-        username = "No username";
-        password = "No password";
-        balance = 0; 
-        accountNum = TotalAccountNums++; 
+        FirstName = "NoName";
+        LastName = "NoName";
+        Username = "No Username";
+        Password = "No Password";
+        Balance = 0; 
+        AccountNum = TotalAccountNums++; 
     }
 
     // parameterized constructor
     public BankAccount(string firstName, string lastName, string username, string password, double balance) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.username = username;
-        this.password = password;
-        this.balance = balance;  
-        accountNum = TotalAccountNums++; 
+        this.FirstName = firstName;
+        this.LastName = lastName;
+        this.Username = username;
+        this.Password = password;
+        this.Balance = balance;  
+        AccountNum = TotalAccountNums++; 
     }
 
-    public void Deposit (double amount) { balance += amount; }
+    public void Deposit (double amount) { Balance += amount; }
 
     public void Withdraw (double amount) { 
-        if ((balance - amount) >= 0) { balance -= amount; }
+        if ((Balance - amount) >= 0) { Balance -= amount; }
 
-        // if user wants to withdraw more than they have as balance
+        // if user wants to withdraw more than they have as Balance
         else { Console.WriteLine("\n*****Insufficient Funds.*****\n"); } 
     }
 
     // displays account info for the user's account
-   public void ViewAccountInfo() {
-    Console.WriteLine($"\nACCOUNT INFO FOR {this.firstName} {this.lastName}:");
-    Console.WriteLine($"----------------------------");
-    Console.WriteLine($"Account Number: {this.accountNum}");
-    Console.WriteLine($"Username: {this.username}");
-    Console.WriteLine($"Balance: ${this.balance}\n");
+    public void ViewAccountInfo() {
+        var sb = new StringBuilder();
+        sb.AppendLine($"\nACCOUNT INFO FOR {FirstName} {LastName}:");
+        sb.AppendLine($"----------------------------");
+        sb.AppendLine($"Account Number: {AccountNum}");
+        sb.AppendLine($"Username: {Username}");
+        sb.AppendLine($"Balance: ${Balance}\n");
+
+        Console.WriteLine(sb.ToString());
     }
 
 }
